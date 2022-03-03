@@ -2,11 +2,11 @@ import http from 'http'
 import { Server } from 'socket.io'
 import { instrument } from '@socket.io/admin-ui'
 import express from 'express'
-import cors from 'cors'
+// import cors from 'cors'
 
 const app = express()
 
-app.use(cors())
+// app.use(cors())
 app.set('view engine', 'pug')
 app.set('views', __dirname + '/views')
 app.use('/public', express.static(__dirname + '/public'))
