@@ -1,4 +1,4 @@
-const socket = io()
+const socket = io('http://54.180.150.0:3000', { cors: { origin: '*' } })
 
 const welcome = document.querySelector('#welcome')
 const welcomeForm = welcome.querySelector('form')
@@ -251,7 +251,7 @@ function leaveRoom() {
 function clearAllVideos() {
 	const streams = document.querySelector('#streams')
 	const streamArr = streams.querySelectorAll('div')
-	streamArr.forEach(streamElement => {
+	streamArr.forEach((streamElement) => {
 		if (streamElement.id != 'myStream') {
 			streams.removeChild(streamElement)
 		}

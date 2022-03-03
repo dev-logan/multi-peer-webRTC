@@ -16,7 +16,8 @@ app.get('/*', (_, res) => res.redirect('/')) //  다른 주소로 접속시 redi
 const httpServer = http.createServer(app)
 const wsServer = new Server(httpServer, {
 	cors: {
-		origin: ['http://admin.socket.io'],
+		// origin: ['http://admin.socket.io'],
+		origin: '*',
 		credentials: true,
 	},
 })
