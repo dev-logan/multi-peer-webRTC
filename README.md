@@ -1,3 +1,3 @@
-# Noom
+# 홈트게더 MVP
 
-Zoom Clone using NodeJS, WebRTC and Websockets
+NodeJS, WebRTC and Websockets
