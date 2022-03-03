@@ -123,6 +123,10 @@ wsServer.on('connection', (socket) => {
 			roomObjArr = newRoomObjArr
 		}
 	})
+
+	socket.on('test', (time) => {
+		console.log(time)
+	})
 })
 
 const handleListen = () => console.log('Listening on http://localhost:3000')
