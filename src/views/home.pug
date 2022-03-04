@@ -11,6 +11,10 @@ html(lang="en")
                 -webkit-transform: scaleX(-1);
                 transform: scaleX(-1);
             }
+            #streams {
+                display: flex;
+                overflow: auto;
+            }
     body 
         header
             h1 홈트게더 MVP
@@ -23,11 +27,12 @@ html(lang="en")
             div#call
                 div#streams
                     div#myStream
-                        video#myFace(autoplay, playsinline, width='400', height='400')
+                        video#myFace(autoplay, playsinline, width='300', height='300')
                         h3#userNickname
                 div#controlers
                     button#mute 마이크 끄기
                     button#camera 카메라 끄기
+                    button#emoji 👍
                     select#cameras
                     button#leave 나가기
         script(src="/socket.io/socket.io.js")

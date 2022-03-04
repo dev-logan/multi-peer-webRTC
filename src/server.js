@@ -123,9 +123,8 @@ wsServer.on('connection', (socket) => {
 			roomObjArr = newRoomObjArr
 		}
 	})
-
-	socket.on('test', (time) => {
-		console.log(time)
+	socket.on('emoji', () => {
+		socket.to(myRoomName).emit('emoji', socket.id)
 	})
 })
 

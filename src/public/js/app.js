@@ -1,4 +1,4 @@
-// const socket = io('http://54.180.150.0:3000', { cors: { origin: '*' } })
+// const socket = io('http://54.180.150.0:4000', { cors: { origin: '*' } })
 const socket = io()
 
 const welcome = document.querySelector('#welcome')
@@ -9,6 +9,7 @@ const camerasSelect = document.querySelector('#cameras')
 const muteBtn = document.querySelector('#mute')
 const cameraBtn = document.querySelector('#camera')
 const leaveBtn = document.querySelector('#leave')
+const emojiBtn = document.querySelector('#emoji')
 
 call.hidden = true
 
@@ -151,8 +152,8 @@ function paintPeerFace(peerStream, id, remoteNickname) {
 	const video = document.createElement('video')
 	video.autoplay = true
 	video.playsInline = true
-	video.width = '400'
-	video.height = '400'
+	video.width = '300'
+	video.height = '300'
 	video.srcObject = peerStream
 	const nicknameContainer = document.createElement('h3')
 	nicknameContainer.id = 'userNickname'
@@ -274,7 +275,29 @@ function removeVideo(leavedSocketId) {
 	})
 }
 
+function handleEmojiClick() {
+	const myArea = document.querySelector('#myStream')
+	const emojiBox = document.createElement('button')
+	emojiBox.innerText = '👍'
+	myArea.appendChild(emojiBox)
+	setTimeout(() => {
+		emojiBox.hidden = true
+	}, 2000)
+	socket.emit('emoji')
+}
+
+socket.on('emoji', (remoteSocketId) => {
+	const remoteDiv = document.querySelector(`#${remoteSocketId}`)
+	const emojiBox = document.createElement('button')
+	emojiBox.innerText = '👍'
+	remoteDiv.appendChild(emojiBox)
+	setTimeout(() => {
+		emojiBox.hidden = true
+	}, 2000)
+})
+
 welcomeForm.addEventListener('submit', handleWelcomeSubmit)
 muteBtn.addEventListener('click', handleMuteClick)
 cameraBtn.addEventListener('click', handleCameraClick)
 leaveBtn.addEventListener('click', leaveRoom)
+emojiBtn.addEventListener('click', handleEmojiClick)
