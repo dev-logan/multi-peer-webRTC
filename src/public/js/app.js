@@ -1,5 +1,5 @@
-// const socket = io('http://54.180.150.0:4000', { cors: { origin: '*' } })
-const socket = io()
+const socket = io('https://test.kimjeongho-server.com', { cors: { origin: '*' } })
+// const socket = io()
 
 const welcome = document.querySelector('#welcome')
 const welcomeForm = welcome.querySelector('form')
